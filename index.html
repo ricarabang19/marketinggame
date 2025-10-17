@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Word Games - Busy But Not Stressed!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1 class="game-title">Team Word Games</h1>
+            <p class="team-motto">🎨 Busy But Not Stressed! 🎨</p>
+            <div class="game-toggle">
+                <button class="toggle-btn active" data-game="wordle">Wordle</button>
+                <button class="toggle-btn" data-game="connections">Connections</button>
+            </div>
+        </header>
+
+        <!-- Wordle Game -->
+        <section id="wordle-game" class="game-section active">
+            <div class="game-info">
+                <h2>Team Wordle</h2>
+                <p>Guess the 5-letter word from our world of design &amp; marketing!</p>
+            </div>
+            
+            <div class="wordle-grid">
+                <!-- 6 rows of 5 letters each -->
+                <div class="wordle-row" data-row="0">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+                <div class="wordle-row" data-row="1">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+                <div class="wordle-row" data-row="2">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+                <div class="wordle-row" data-row="3">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+                <div class="wordle-row" data-row="4">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+                <div class="wordle-row" data-row="5">
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                    <div class="letter-box"></div>
+                </div>
+            </div>
+            
+            <div class="keyboard">
+                <div class="keyboard-row">
+                    <button class="key" data-key="Q">Q</button>
+                    <button class="key" data-key="W">W</button>
+                    <button class="key" data-key="E">E</button>
+                    <button class="key" data-key="R">R</button>
+                    <button class="key" data-key="T">T</button>
+                    <button class="key" data-key="Y">Y</button>
+                    <button class="key" data-key="U">U</button>
+                    <button class="key" data-key="I">I</button>
+                    <button class="key" data-key="O">O</button>
+                    <button class="key" data-key="P">P</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key" data-key="A">A</button>
+                    <button class="key" data-key="S">S</button>
+                    <button class="key" data-key="D">D</button>
+                    <button class="key" data-key="F">F</button>
+                    <button class="key" data-key="G">G</button>
+                    <button class="key" data-key="H">H</button>
+                    <button class="key" data-key="J">J</button>
+                    <button class="key" data-key="K">K</button>
+                    <button class="key" data-key="L">L</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key key-large" data-key="ENTER">ENTER</button>
+                    <button class="key" data-key="Z">Z</button>
+                    <button class="key" data-key="X">X</button>
+                    <button class="key" data-key="C">C</button>
+                    <button class="key" data-key="V">V</button>
+                    <button class="key" data-key="B">B</button>
+                    <button class="key" data-key="N">N</button>
+                    <button class="key" data-key="M">M</button>
+                    <button class="key key-large" data-key="BACKSPACE">⌫</button>
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn--secondary" id="wordle-reset">New Word</button>
+            </div>
+        </section>
+
+        <!-- Connections Game -->
+        <section id="connections-game" class="game-section">
+            <div class="game-info">
+                <h2>Team Connections</h2>
+                <p>Find groups of 4 related words from our team universe!</p>
+                <div class="connections-status">
+                    <span class="mistakes-left">Mistakes: <span id="mistakes-count">4</span></span>
+                </div>
+            </div>
+            
+            <div class="connections-grid">
+                <!-- 16 word buttons will be populated by JavaScript -->
+            </div>
+            
+            <div class="connections-controls">
+                <button class="btn btn--outline" id="shuffle-words">Shuffle</button>
+                <button class="btn btn--outline" id="deselect-all">Deselect All</button>
+                <button class="btn btn--primary" id="submit-group">Submit</button>
+            </div>
+            
+            <div class="found-groups">
+                <!-- Found groups will appear here -->
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn--secondary" id="connections-reset">New Puzzle</button>
+            </div>
+        </section>
+
+        <!-- Game Over Modal -->
+        <div id="game-modal" class="modal">
+            <div class="modal-content">
+                <h3 id="modal-title"></h3>
+                <p id="modal-message"></p>
+                <div class="modal-actions">
+                    <button class="btn btn--primary" id="play-again">Play Again</button>
+                    <button class="btn btn--outline" id="switch-game">Try Other Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
